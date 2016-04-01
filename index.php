@@ -509,3 +509,20 @@
     <script type="text/javascript" src="js/main.js"></script>  
 </body>
 </html>
+
+<?php
+if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['message'])){
+	$name=$_POST['name']; 
+	$email = $_POST['email'];
+	$subject = "Contact from Website";
+	$message = $_POST['message'];
+	if(($name=="")||($email=="")||($message=="")){ 
+	    echo "All fields are required, please fill <a href=\"\">the form</a> again.";
+	} 
+	else{         
+	    $from="From: $name<$email>\r\nReturn-path: $email"; 
+	    $subject="Message sent using your contact form"; 
+	    mail("mail2msitgnosis@gmail.com", $subject, $message, $email);
+	}
+}
+?>
