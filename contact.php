@@ -4,10 +4,10 @@ header('Content-type: application/json');
 		'type'=>'success',
 		'message'=>'Thank you for contact us. As early as possible  we will contact you '
 	);
- $name=$_REQUEST['name']; 
-$email = $_REQUEST['email'];
+ $name=$_POST['name']; 
+$email = $_POST['email'];
 $subject = "Contact from Website";
-$message = $_REQUEST['message'];
+$message = $_POST['message'];
  if (($name=="")||($email=="")||($message=="")) 
         { 
         echo "All fields are required, please fill <a href=\"\">the form</a> again."; 
