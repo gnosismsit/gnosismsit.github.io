@@ -1,4 +1,6 @@
 <?php
+            require_once "navbar.html";
+
             if($_GET['var']=='err'){
                 echo "<div id='myModal' class='modal fade' role='dialog'>";
                 echo "<div class='modal-dialog'>";
@@ -23,13 +25,13 @@
                 $subject = "Contact from Website";
                 $message = $_POST['message'];
                 if(($name=="")||($email=="")||($message=="")){ 
-                    echo "All fields are required, please fill <a href=\"\">the form</a> again.";
+                    require_once "usuccessmessage.html";
                 } 
                 else{         
                     $from="From: $name<$email>\r\nReturn-path: $email"; 
                     $subject="Message sent using your contact form"; 
                     mail("mail2msitgnosis@gmail.com", $subject, $message, $email);
-                    header("Location: index.php#contact?var=err");
+                    require_once "successmessage.html";
                 }
             }
 ?>
